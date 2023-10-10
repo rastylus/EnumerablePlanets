@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8"/>
     <title>Enumerable Planets</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"></script>
@@ -9,6 +9,44 @@
 </head>
 <body>
 <h1>Pick a planet:</h1>
+
+<!--<select name="planets">-->
+<!--    <option-->
+<!--            th:each="planet : ${T(org.launchcode.models.Planets).values()}"-->
+<!--            th:text="${planet}"-->
+<!--            th:value="${planet}">-->
+<!--    </option>-->
+<!--</select>-->
+<ol>
+    <li th:each="planet : ${T(org.launchcode.models.Planets).values()}" th:text="${planet.name}"></li>
+</ol>
+<!--<ol>-->
+<!--    <li th:each="planet : ${planets}" th:text="${planet.name}"></li>-->
+<!--</ol>-->
+<!--<span th:text="${T(org.launchcode.models.Planets).MARS}"></span>-->
+<table th:each="planet : ${T(org.launchcode.models.Planets).values()}" class="table table-striped">
+    <thead >
+    <tr>
+        <th th:text="${planet.name}">
+        </th>
+    </tr>
+    </thead>
+    <tr>
+        <td th:text="${planet.yearLength} + ' Earth days in one
+        year.'"></td>
+    </tr>
+</table>
+
+<!--<div class="form-group">-->
+<!--    <label>Type-->
+<!--        <select >-->
+<!--            <option th:each="planet : ${planets}"-->
+<!--                    th:value="${planet}"-->
+<!--                    th:text="${planet.name}"-->
+<!--            ></option>-->
+<!--        </select>-->
+<!--    </label>-->
+<!--</div>-->
 
 </body>
 </html>
